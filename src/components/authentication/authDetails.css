@@ -1,0 +1,8 @@
+.auth-content {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.auth-user {
+  font-size: 15px;
+}

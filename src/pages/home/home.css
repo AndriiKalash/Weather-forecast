@@ -1,0 +1,18 @@
+.main-content {
+  display: flex;
+  gap: 25px;
+}
+.main-left-content {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.home-title-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.home-title {
+  font-size: 28px;
+  margin-right: 20px;
+}

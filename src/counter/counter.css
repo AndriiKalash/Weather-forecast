@@ -1,0 +1,17 @@
+.counter-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 40px;
+}
+.counter-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter-number {
+  margin-bottom: 0;
+}
+.counter-description {
+  font-size: 12px;
+}

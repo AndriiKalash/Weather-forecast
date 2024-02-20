@@ -1,0 +1,43 @@
+.trip-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+.trip-card {
+  border: 1px solid rgb(128, 120, 120);
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.trip-card:hover {
+  border: 1px solid #3288eb;
+}
+.trip-btn {
+  width: 202px;
+}
+.trip-btn button {
+  width: 50%;
+  font-weight: 400;
+  cursor: pointer;
+}
+.trip-city {
+  padding: 0 5px;
+  font-weight: 400;
+  font-family: 20px;
+  margin: 0;
+}
+.trip-date {
+  padding: 0 5px;
+  font-size: 12px;
+}
+.trip-add {
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  cursor: pointer;
+  width: 200px;
+  height: 150px;
+  box-shadow: 0 4px 8px rgba(118, 118, 118, 0.92);
+}
+.trip-add p {
+  margin: 0;
+}
