@@ -1,8 +1,13 @@
 import React from 'react';
 import './weekWeather.css';
 
-function WeekWeather({ weekWeather }) {
-  return (
+function WeekWeather({ weekWeather, loading, error }) {
+  if (error !== null) {
+    return <p style={{ color: 'red' }}>Something gone wrong </p>;
+  }
+  return loading ? (
+    <div>Loading...</div>
+  ) : (
     <ul className="week-list">
       {weekWeather.map((item) => {
         const icon = `/icons/${item.icon}.svg`;

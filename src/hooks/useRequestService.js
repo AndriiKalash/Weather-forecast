@@ -1,8 +1,7 @@
 import { useHttp } from './http.hook';
 
 const useRequestService = () => {
-  const { request, loading, error, clearError, process, setProcess } =
-    useHttp();
+  const { request, loading, error } = useHttp();
 
   // no change variables
   const _apiBase =
@@ -16,7 +15,6 @@ const useRequestService = () => {
         `${_apiBase}timeline/${city}/${date1}/${date2}?unitGroup=metric&${_apiKey}&contentType=json`
       );
 
-      setProcess('confirmed');
       return res;
     } catch (error) {
       console.error(error);
@@ -27,10 +25,7 @@ const useRequestService = () => {
   return {
     loading,
     error,
-    process,
-    setProcess,
     getData,
-    clearError,
   };
 };
 

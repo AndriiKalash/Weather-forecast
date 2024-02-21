@@ -1,8 +1,8 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { citysData } from '../../data/cityList';
-import './addTrip.css';
 import useForm from '../../hooks/useForm';
+import './addTrip.css';
 
 const AddTripModal = ({ setCityList, setOpenForm }) => {
   const {

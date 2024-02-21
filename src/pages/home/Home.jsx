@@ -17,10 +17,12 @@ const Home = () => {
     setSearchTrips,
     selectedCity,
     setSelectedCity,
+    todayData,
     openform,
     setOpenForm,
     weekWeather,
-    setWeekWeather,
+    loading,
+    error,
   } = useApp();
 
   return (
@@ -38,11 +40,17 @@ const Home = () => {
             setSelectedCity={setSelectedCity}
             setOpenForm={setOpenForm}
           />
-          <WeekWeather weekWeather={weekWeather} />
+          <WeekWeather
+            weekWeather={weekWeather}
+            loading={loading}
+            error={error}
+          />
         </div>
         <TripDetails
           selectedCity={selectedCity}
-          setWeekWeather={setWeekWeather}
+          todayData={todayData}
+          loading={loading}
+          error={error}
         />
       </div>
       {openform && (

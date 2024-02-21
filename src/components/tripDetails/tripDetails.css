@@ -8,6 +8,12 @@
   color: #ffffff;
   min-width: 280px;
 }
+.details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .details-temp {
   align-items: center;
   display: flex;
