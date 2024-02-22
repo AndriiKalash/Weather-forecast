@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../firebase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './signForm.css';
 
 function SignUp() {
@@ -10,6 +10,7 @@ function SignUp() {
     password: '',
   });
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const register = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ function SignUp() {
         console.log(user);
         setForm({ email: '', password: '' });
         setError(null);
+        navigate('/home');
       })
       .catch((e) => {
         console.log(e.message);

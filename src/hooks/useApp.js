@@ -3,6 +3,8 @@ import { citysData } from '../data/cityList';
 import { addDays, format, formatDate } from 'date-fns';
 import { daysOfWeek } from '../data/daysOfWeek';
 import useRequestService from './useRequestService';
+import { auth } from '../firebase';
+import { getDataFirebase, setDataFirebase } from '../services/setDataFirebase';
 
 export function useApp() {
   const { getData, loading, error } = useRequestService();
@@ -24,23 +26,6 @@ export function useApp() {
   const [todayData, setTodayData] = useState({});
 
   const isMounted = useRef(false);
-
-  //get data to storage
-  useEffect(() => {
-    if (isMounted.current) {
-      const jsonCard = JSON.stringify(cityList);
-      localStorage.setItem('cityList', jsonCard);
-    }
-    isMounted.current = true;
-  }, [cityList]);
-
-  //set Data from storage
-  useEffect(() => {
-    const localData = localStorage.getItem('cityList');
-    if (localData) {
-      setCityList(() => JSON.parse(localData));
-    }
-  }, []);
 
   useEffect(() => {
     // week request from selected day:
@@ -74,6 +59,19 @@ export function useApp() {
       });
     });
   }, [selectedCity]);
+
+  const user = auth.currentUser;
+
+  useEffect(() => {
+    if (isMounted.current) {
+      setDataFirebase(cityList);
+    }
+    isMounted.current = true;
+  }, [cityList]);
+
+  useEffect(() => {
+    getDataFirebase(setCityList, user);
+  }, [user]);
 
   return {
     cityList,

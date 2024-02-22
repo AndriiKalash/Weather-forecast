@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import './authDetails.css';
 
 const AuthDetails = () => {
-  const [authUser, setAuthUset] = useState(null);
+  const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setAuthUset(user);
+        setAuthUser(user);
       } else {
-        setAuthUset(null);
+        setAuthUser(null);
       }
     });
     return () => {
